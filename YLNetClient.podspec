@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = 'A Tools of Network use easy.'
 
-  s.homepage         = 'https://github.com/2510479687@qq.com/YLNetClient'
+  s.homepage         = 'https://github.com/cloverapp1/YLNetClient.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '2510479687@qq.com' => '2510479687@qq.com' }
