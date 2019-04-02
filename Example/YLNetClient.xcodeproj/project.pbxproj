@@ -23,6 +23,10 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		77B423295CE0F8284B972F72 /* Pods_YLNetClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2649E195032F77404578000A /* Pods_YLNetClient_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8F49E1C0225341780063FE91 /* YLUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49E1B9225341770063FE91 /* YLUserModel.m */; };
+		8F49E1C1225341780063FE91 /* YLCustomNetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49E1BA225341770063FE91 /* YLCustomNetConfig.m */; };
+		8F49E1C2225341780063FE91 /* YLDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49E1BD225341770063FE91 /* YLDataModel.m */; };
+		8F49E1C3225341780063FE91 /* YLRequestControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49E1BF225341780063FE91 /* YLRequestControl.m */; };
 		D7B68393A2436501D42AAD5F /* Pods_YLNetClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11DF1E1DFEC7F766C371B5B /* Pods_YLNetClient_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +66,14 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C4E08EF3AD3676D9EC63067 /* Pods-YLNetClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLNetClient_Tests.release.xcconfig"; path = "Target Support Files/Pods-YLNetClient_Tests/Pods-YLNetClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8F49E1B8225341740063FE91 /* YLUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUserModel.h; sourceTree = "<group>"; };
+		8F49E1B9225341770063FE91 /* YLUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLUserModel.m; sourceTree = "<group>"; };
+		8F49E1BA225341770063FE91 /* YLCustomNetConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLCustomNetConfig.m; sourceTree = "<group>"; };
+		8F49E1BB225341770063FE91 /* YLCustomNetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCustomNetConfig.h; sourceTree = "<group>"; };
+		8F49E1BC225341770063FE91 /* YLDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDataModel.h; sourceTree = "<group>"; };
+		8F49E1BD225341770063FE91 /* YLDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLDataModel.m; sourceTree = "<group>"; };
+		8F49E1BE225341780063FE91 /* YLRequestControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRequestControl.h; sourceTree = "<group>"; };
+		8F49E1BF225341780063FE91 /* YLRequestControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLRequestControl.m; sourceTree = "<group>"; };
 		9C20FF1857F284A4D736FBAF /* Pods-YLNetClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLNetClient_Example.release.xcconfig"; path = "Target Support Files/Pods-YLNetClient_Example/Pods-YLNetClient_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A57F89CC6345770CE6367D82 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BE9E75F4ABED9328E3672962 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -143,6 +155,7 @@
 		6003F593195388D20070C39A /* Example for YLNetClient */ = {
 			isa = PBXGroup;
 			children = (
+				8F49E22B225355340063FE91 /* CustomNet */,
 				6003F59C195388D20070C39A /* YLAppDelegate.h */,
 				6003F59D195388D20070C39A /* YLAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -196,6 +209,21 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8F49E22B225355340063FE91 /* CustomNet */ = {
+			isa = PBXGroup;
+			children = (
+				8F49E1BB225341770063FE91 /* YLCustomNetConfig.h */,
+				8F49E1BA225341770063FE91 /* YLCustomNetConfig.m */,
+				8F49E1BC225341770063FE91 /* YLDataModel.h */,
+				8F49E1BD225341770063FE91 /* YLDataModel.m */,
+				8F49E1BE225341780063FE91 /* YLRequestControl.h */,
+				8F49E1BF225341780063FE91 /* YLRequestControl.m */,
+				8F49E1B8225341740063FE91 /* YLUserModel.h */,
+				8F49E1B9225341770063FE91 /* YLUserModel.m */,
+			);
+			path = CustomNet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,7 +235,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				14FBF5EED7B29D4BD804B0D1 /* [CP] Embed Pods Frameworks */,
+				426EC0E35E351B4491F7CD24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,7 +322,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14FBF5EED7B29D4BD804B0D1 /* [CP] Embed Pods Frameworks */ = {
+		3EEBC2AC6122D9D3E4729AF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YLNetClient_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		426EC0E35E351B4491F7CD24 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,28 +370,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YLNetClient_Example/Pods-YLNetClient_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EEBC2AC6122D9D3E4729AF8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YLNetClient_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7C4C668D05DF1F70A274BAA /* [CP] Check Pods Manifest.lock */ = {
@@ -374,7 +402,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* YLAppDelegate.m in Sources */,
+				8F49E1C3225341780063FE91 /* YLRequestControl.m in Sources */,
+				8F49E1C0225341780063FE91 /* YLUserModel.m in Sources */,
+				8F49E1C1225341780063FE91 /* YLCustomNetConfig.m in Sources */,
 				6003F5A7195388D20070C39A /* YLViewController.m in Sources */,
+				8F49E1C2225341780063FE91 /* YLDataModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,10 +561,12 @@
 			baseConfigurationReference = 1CD4AE195A1E682116CDA431 /* Pods-YLNetClient_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YLNetClient/YLNetClient-Prefix.pch";
 				INFOPLIST_FILE = "YLNetClient/YLNetClient-Info.plist";
 				MODULE_NAME = ExampleApp;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -544,10 +578,12 @@
 			baseConfigurationReference = 9C20FF1857F284A4D736FBAF /* Pods-YLNetClient_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YLNetClient/YLNetClient-Prefix.pch";
 				INFOPLIST_FILE = "YLNetClient/YLNetClient-Info.plist";
 				MODULE_NAME = ExampleApp;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

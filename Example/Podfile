@@ -5,10 +5,11 @@ platform :ios, '8.0'
 target 'YLNetClient_Example' do
   pod 'YLNetClient', :path => '../'
 
-  pod 'AFNetworking'
-  pod 'YLJsonLib'
-  pod 'MBProgressHUD'
-  
+#  pod 'YLNetClient'
+#  pod 'AFNetworking'
+#  pod 'YLJsonLib'
+#  pod 'MBProgressHUD'
+
   target 'YLNetClient_Tests' do
     inherit! :search_paths
 

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YLNetConfig.h"
+#import <YLNetClient/YLNetConfig.h>
+
 
 NS_ASSUME_NONNULL_BEGIN
 
