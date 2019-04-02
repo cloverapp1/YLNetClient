@@ -1,0 +1,6 @@
+framework module Pods_YLNetClient_Tests {
+  umbrella header "Pods-YLNetClient_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

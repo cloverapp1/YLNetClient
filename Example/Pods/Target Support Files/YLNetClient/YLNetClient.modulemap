@@ -1,0 +1,6 @@
+framework module YLNetClient {
+  umbrella header "YLNetClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
