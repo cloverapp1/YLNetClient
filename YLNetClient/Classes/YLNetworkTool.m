@@ -10,23 +10,25 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YLJsonLib/YLJastor.h>
 
-#define YLNETWORK_REQUEST_MACRO(METHOD,HUD) \
-[super METHOD:URLString parameters:parameters success:^(NSURLSessionDataTask * task, id responseObject) { \
-if (HUD){\
-[HUD hideAnimated:YES];}\
-NSString *jsonStr;\
-if (responseObject) {\
-jsonStr = [(NSDictionary *)responseObject yy_modelToJSONString];}\
-requestBack(YES, responseObject, jsonStr, parameters, nil);\
-} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {\
-if (HUD){\
-[HUD hideAnimated:YES];}\
-requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
-}]
+#ifdef DEBUG
+#define YLLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define YLLog(format, ...)
+#endif
 
-//YLLog(@"成功jsonStr = %@",jsonStr);
-//YLLog(@"成功jsonStr = %@",jsonStr);
-//YLLog(@"\n请求失败************************\n%@",error);
+#define YLNETWORK_REQUEST_MACRO(METHOD, HUD, URL, PARAMTER) \
+[super METHOD:URL parameters:PARAMTER success:^(NSURLSessionDataTask * task, id responseObject) { \
+    if (HUD){\
+        [HUD hideAnimated:YES];}\
+    NSString *jsonStr;\
+    if (responseObject) {\
+        jsonStr = [(NSDictionary *)responseObject yy_modelToJSONString];}\
+    requestBack(YES, responseObject, jsonStr, parameters, nil);\
+} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {\
+    if (HUD){\
+        [HUD hideAnimated:YES];}\
+    requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
+}]
 
 @implementation YLNetworkTool
 
@@ -47,7 +49,7 @@ requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
                    requestBack:(YLClientRequestBack)requestBack
 {
     MBProgressHUD *hud = [self hudFromView:view];
-    return YLNETWORK_REQUEST_MACRO(POST, hud);
+    return YLNETWORK_REQUEST_MACRO(POST, hud, URLString, parameters);
 }
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
@@ -56,7 +58,7 @@ requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
                   requestBack:(YLClientRequestBack)requestBack
 {
     MBProgressHUD *hud = [self hudFromView:view];
-    return YLNETWORK_REQUEST_MACRO(GET, hud);
+    return YLNETWORK_REQUEST_MACRO(GET, hud, URLString, parameters);
 }
 
 - (NSURLSessionDataTask *)DELETE:(NSString *)URLString
@@ -65,7 +67,7 @@ requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
                      requestBack:(YLClientRequestBack)requestBack
 {
     MBProgressHUD *hud = [self hudFromView:view];
-    return YLNETWORK_REQUEST_MACRO(DELETE, hud);
+    return YLNETWORK_REQUEST_MACRO(DELETE, hud, URLString, parameters);
 }
 
 - (NSURLSessionDataTask *)PUT:(NSString *)URLString
@@ -74,7 +76,7 @@ requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
                   requestBack:(YLClientRequestBack)requestBack
 {
     MBProgressHUD *hud = [self hudFromView:view];
-    return YLNETWORK_REQUEST_MACRO(PUT, hud);
+    return YLNETWORK_REQUEST_MACRO(PUT, hud, URLString, parameters);
 }
 
 - (NSURLSessionDataTask *)UPLOAD:(NSString *)URLString
