@@ -93,7 +93,7 @@ constructingBodyWithBlock:block
                      [hud hideAnimated:YES];
                      if (responseObject) {
                          NSString *jsonStr = [(NSDictionary *)responseObject yy_modelToJSONString];
-                         YLLog(@"jsonStr = %@",jsonStr);
+//                         YLLog(@"jsonStr = %@",jsonStr);
                      }
                      requestBack(YES, responseObject, nil, parameters, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
