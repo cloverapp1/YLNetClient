@@ -10,6 +10,23 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YLJsonLib/YLJastor.h>
 
+#define YLNETWORK_REQUEST_MACRO(METHOD,HUD) \
+[super METHOD:URLString parameters:parameters success:^(NSURLSessionDataTask * task, id responseObject) { \
+if (HUD){\
+[HUD hideAnimated:YES];}\
+NSString *jsonStr;\
+if (responseObject) {\
+jsonStr = [(NSDictionary *)responseObject yy_modelToJSONString];}\
+requestBack(YES, responseObject, jsonStr, parameters, nil);\
+} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {\
+if (HUD){\
+[HUD hideAnimated:YES];}\
+requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
+}]
+
+//YLLog(@"成功jsonStr = %@",jsonStr);
+//YLLog(@"成功jsonStr = %@",jsonStr);
+//YLLog(@"\n请求失败************************\n%@",error);
 
 @implementation YLNetworkTool
 
