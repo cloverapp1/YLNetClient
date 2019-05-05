@@ -1,5 +1,31 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#import <YLJsonLib/YLJastor.h>
+
+#ifdef DEBUG
+#define YLLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define YLLog(format, ...)
+#endif
+
+#define YLNETWORK_REQUEST_MACRO(METHOD,HUD) \
+[super METHOD:URLString parameters:parameters success:^(NSURLSessionDataTask * task, id responseObject) { \
+    if (HUD){\
+        [HUD hideAnimated:YES];}\
+    NSString *jsonStr;\
+    if (responseObject) {\
+        jsonStr = [(NSDictionary *)responseObject yy_modelToJSONString];}\
+    requestBack(YES, responseObject, jsonStr, parameters, nil);\
+} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {\
+    if (HUD){\
+        [HUD hideAnimated:YES];}\
+    requestBack(NO, nil, nil, parameters, [error localizedDescription]);\
+}]
+
+//YLLog(@"成功jsonStr = %@",jsonStr);
+//YLLog(@"成功jsonStr = %@",jsonStr);
+//YLLog(@"\n请求失败************************\n%@",error);
+
 #else
 #ifndef FOUNDATION_EXPORT
 #if defined(__cplusplus)

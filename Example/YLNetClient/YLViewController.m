@@ -11,6 +11,7 @@
 #import "YLNetworkTool.h"
 #import "YLUserModel.h"
 #import "YLRequestControl.h"
+#import "MBProgressHUD.h"
 
 
 
@@ -25,7 +26,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
+}
+- (IBAction)request:(id)sender
+{
+    NSLog(@"点击了请求");
     [YLRequestControl loginViewParamter:@{@"username":@"chaney",@"password":@"afdd0b4ad2ec172c586e2150770fbf9e"} inView:self.view ret:^(YLDataModel * _Nonnull result, YLUserModel *data, NSString * _Nullable errorMessage) {
+        if ([YLDataModel handleResult:result]) {
+            ;
+        }
+    }];
+}
+- (IBAction)requestMethod:(id)sender
+{
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.backgroundColor = [UIColor clearColor];
+    NSLog(@"点击了请求1");
+    [YLRequestControl loginViewParamter:@{@"username":@"chaney",@"password":@"afdd0b4ad2ec172c586e2150770fbf9e"} inView:self.view ret:^(YLDataModel * _Nonnull result, YLUserModel *data, NSString * _Nullable errorMessage) {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [hud hideAnimated:YES];
         if ([YLDataModel handleResult:result]) {
             ;
         }
